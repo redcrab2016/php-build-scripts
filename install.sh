@@ -45,12 +45,12 @@ else
 	cd ImagicalMine-master >>./$l 2>>./$le
 	chmod 777 src >>../$l 2>>../$le
 	cp -rf src .. >>../$l 2>>../$le
-        cp -rf start.sh .. >>./$l 2>>./$le
+#        cp -rf start.sh .. >>./$l 2>>./$le
 	cd .. >>../$l 2>>../$le
 	rm -rf ImagicalMine-master >>./$l 2>>./$le
 	rm -rf master.zip >>./$l 2>>./$le
-#	wget https://github.com/ImagicalMine/ImagicalMine/master/start.sh >>./$l 2>>./$le
-#	chmod 777 start.sh >>./$l 2>>./$le
+	wget https://raw.githubusercontent.com/ImagicalMine/ImagicalMine/php7-0.14/start.sh >>./$l 2>>./$le
+	chmod 777 start.sh >>./$l 2>>./$le
 	echo
 	
 	echo "system> Installing PHP binary..."
