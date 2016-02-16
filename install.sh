@@ -1,12 +1,12 @@
 clear
-# echo '  _                       _           _ __  __ _             '
-# echo ' (_)                     (_)         | |  \/  (_)            '
-# echo '  _ _ __ ___   __ _  __ _ _  ___ __ _| | \  / |_ _ __   ___  '
-# echo ' | | '_ ` _ \ / _` |/ _` | |/ __/ _` | | |\/| | | '_ \ / _ \ '
-# echo ' | | | | | | | (_| | (_| | | (_| (_| | | |  | | | | | |  __/ '
-# echo ' |_|_| |_| |_|\__,_|\__, |_|\___\__,_|_|_|  |_|_|_| |_|\___| '
-# echo '                     __/ |                                   '
-# echo '                    |___/                                    '                              
+ echo "  _                       _           _ __  __ _             "
+ echo " (_)                     (_)         | |  \/  (_)            "
+ echo "  _ _ __ ___   __ _  __ _ _  ___ __ _| | \  / |_ _ __   ___  "
+ echo " | | '_ ` _ \ / _` |/ _` | |/ __/ _` | | |\/| | | '_ \ / _ \ "
+ echo " | | | | | | | (_| | (_| | | (_| (_| | | |  | | | | | |  __/ "
+ echo " |_|_| |_| |_|\__,_|\__, |_|\___\__,_|_|_|  |_|_|_| |_|\___| "
+ echo "                     __/ |                                   "
+ echo "                    |___/                                    "
 
 
 sleep 2
@@ -45,14 +45,15 @@ else
 	cd ImagicalMine-master >>./$l 2>>./$le
 	chmod 777 src >>../$l 2>>../$le
 	cp -rf src .. >>../$l 2>>../$le
+        cp -rf start.sh .. >>./$l 2>>./$le
 	cd .. >>../$l 2>>../$le
 	rm -rf ImagicalMine-master >>./$l 2>>./$le
 	rm -rf master.zip >>./$l 2>>./$le
-	wget https://github.com/ImagicalMine/ImagicalMine/master/start.sh >>./$l 2>>./$le
-	chmod 777 start.sh >>./$l 2>>./$le
+#	wget https://github.com/ImagicalMine/ImagicalMine/master/start.sh >>./$l 2>>./$le
+#	chmod 777 start.sh >>./$l 2>>./$le
 	echo
 	
-	echo 'system> Installing PHP binary...'
+	echo "system> Installing PHP binary..."
 	wget https://bintray.com/artifact/download/pocketmine/PocketMine/$z >>./$wp 2>>./$wp
 	chmod 777 $z >>./$lp 2>>./$lpe
 	tar zxvf $z >>./$lp 2>>./$lpe
