@@ -11,6 +11,7 @@ clear
 
 sleep 2
 
+shopt -s extglob
 echo "system> Choose which PHP binary you want to install"
 echo "system>	1) Linux x86"
 echo "system>	2) Linux x64"
@@ -20,7 +21,8 @@ read a
 case "$a" in 
 	1 ) z="PHP_7.0.2_x86_Linux.tar.gz";;
 	2 ) z="PHP_7.0.2_x86-64_Linux.tar.gz";;
-	* ) z="x";;
+	!(1) ) z="x";;
+        !(2) ) z="x";;
 esac
 
 l="install_log/log"
@@ -57,4 +59,5 @@ else
 	rm -r $z >>./$lp 2>>./$lpe
 	echo
 	echo "system> ImagicalMine installation completed! Run ./start.sh (or ./st*) to start ImagicalMine."
+        shopt -u extglob
 fi
