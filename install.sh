@@ -38,16 +38,16 @@ if [ $z == "x" ];then
 else
 	mkdir install_log
 	echo "system> Installing ImagicalMine..."
-	wget https://github.com/ImagicalMine/ImagicalMine/archive/master.zip >>./$w 2>>./$w
-	chmod 777 master.zip >>./$l 2>>./$le
-	unzip -o master.zip >>./$l 2>>./$le
-	chmod 777 ImagicalMine-master >>./$l 2>>./$le
-	cd ImagicalMine-master >>./$l 2>>./$le
+	wget https://github.com/ImagicalMine/ImagicalMine/archive/php7-0.14.zip >>./$w 2>>./$w
+	chmod 777 php7-0.14.zip >>./$l 2>>./$le
+	unzip -o php7-0.14.zip >>./$l 2>>./$le
+	chmod 777 ImagicalMine-php7-0.14 >>./$l 2>>./$le
+	cd ImagicalMine-php7-0.14 >>./$l 2>>./$le
 	chmod 777 src >>../$l 2>>../$le
 	cp -rf src .. >>../$l 2>>../$le
 #        cp -rf start.sh .. >>./$l 2>>./$le
 	cd .. >>../$l 2>>../$le
-	rm -rf ImagicalMine-master >>./$l 2>>./$le
+	rm -rf ImagicalMine-php7-0.14 >>./$l 2>>./$le
 	rm -rf master.zip >>./$l 2>>./$le
 	wget https://raw.githubusercontent.com/ImagicalMine/ImagicalMine/php7-0.14/start.sh >>./$l 2>>./$le
 	chmod 777 start.sh >>./$l 2>>./$le
