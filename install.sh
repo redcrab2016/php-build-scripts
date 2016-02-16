@@ -8,9 +8,6 @@ clear
  echo "                     __/ |                                   "
  echo "                    |___/                                    "
 
-
-sleep 2
-
 shopt -s extglob
 echo "system> Choose which PHP binary you want to install"
 echo "system>	1) Linux x86"
@@ -21,8 +18,12 @@ read a
 case "$a" in 
 	1 ) z="PHP_7.0.2_x86_Linux.tar.gz";;
 	2 ) z="PHP_7.0.2_x86-64_Linux.tar.gz";;
+        3 ) z="PHP_7.0.2_x86_MacOS.tar.gz";;
+        4 ) z="PHP_7.0.2_x86-64_MacOS.tar.gz";;
 	!(1) ) z="x";;
         !(2) ) z="x";;
+        !(3) ) z="x";;
+        !(4) ) z="x";;
 esac
 
 l="install_log/log"
