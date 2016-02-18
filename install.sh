@@ -66,6 +66,7 @@ else
 	rm -rf php7-0.14.zip >>./$l 2>>./$le
 	wget https://raw.githubusercontent.com/ImagicalMine/ImagicalMine/php7-0.14/start.sh >>./$l 2>>./$le
 	chmod 777 start.sh >>./$l 2>>./$le
+        wget https://raw.githubusercontent.com/ImagicalMine/ImagicalMine/master/LICENSE.md >>./$l 2>>./$le
 	echo
 	
 	echo "system> Installing PHP binary..."
