@@ -48,7 +48,7 @@ w="install_log/log_wget"
 wp="install_log/log_wget_php"
 
 if [ $z == "x" ];then
-	echo "error> Unknown selection. Restart the script, and then choose again."
+	echo "error> An unexpected error occurred - either a 10 second timeout or an unknown selection. Restart the script, and then choose again."
 	exit 1
 else
 	mkdir install_log
