@@ -2,7 +2,7 @@
 
 CHANNEL="stable"
 BRANCH="php7"
-NAME="PocketMine-MP"
+NAME="ImagicalMine-MP"
 BUILD_URL=""
 
 LINUX_32_BUILD="PHP_7.0.0RC3_x86_Linux"
@@ -91,10 +91,6 @@ if [ "$checkRoot" == "on" ]; then
 	fi
 fi
 
-if [ "$CHANNEL" == "soft" ]; then
-	NAME="PocketMine-Soft"
-fi
-
 ENABLE_GPG="no"
 PUBLICKEY_URL="http://cdn.pocketmine.net/pocketmine.asc"
 PUBLICKEY_FINGERPRINT="20D377AFC3F7535B3261AA4DCF48E7E52280B75B"
@@ -113,16 +109,6 @@ function check_signature {
 	fi	
 }
 
-if [[ "$BUILD_URL" != "" && "$CHANNEL" == "custom" ]]; then
-	BASE_VERSION="custom"
-	VERSION="custom"
-	BUILD="unknown"
-	API_VERSION="unknown"
-	VERSION_DATE_STRING="unknown"
-	ENABLE_GPG="no"
-	VERSION_DOWNLOAD="$BUILD_URL"
-else
-
 VERSION_DATA=$(download_file "http://www.pocketmine.net/api/?channel=$CHANNEL")
 
 VERSION=$(echo "$VERSION_DATA" | grep '"version"' | cut -d ':' -f2- | tr -d ' ",')
@@ -130,6 +116,10 @@ BUILD=$(echo "$VERSION_DATA" | grep build | cut -d ':' -f2- | tr -d ' ",')
 API_VERSION=$(echo "$VERSION_DATA" | grep api_version | cut -d ':' -f2- | tr -d ' ",')
 VERSION_DATE=$(echo "$VERSION_DATA" | grep '"date"' | cut -d ':' -f2- | tr -d ' ",')
 VERSION_DOWNLOAD=$(echo "$VERSION_DATA" | grep '"download_url"' | cut -d ':' -f2- | tr -d ' ",')
+
+if [ "$alternateurl" == "on" ]; then
+    VERSION_DOWNLOAD=$(echo "$VERSION_DATA" | grep '"alternate_download_url"' | cut -d ':' -f2- | tr -d ' ",')
+fi
 
 if [ "$(uname -s)" == "Darwin" ]; then
 	BASE_VERSION=$(echo "$VERSION" | sed -E 's/([A-Za-z0-9_\.]*).*/\1/')
@@ -177,8 +167,6 @@ if [ "$ENABLE_GPG" == "yes" ]; then
 	fi
 fi
 
-fi
-
 echo "[*] Found $NAME $BASE_VERSION (build $BUILD) using API $API_VERSION"
 echo "[*] This $CHANNEL build was released on $VERSION_DATE_STRING"
 
@@ -214,15 +202,12 @@ if ! [ -s "$NAME.phar" ] || [ "$(head -n 1 $NAME.phar)" == '<!DOCTYPE html>' ]; 
 	echo "[!] Couldn't download $NAME automatically from $VERSION_DOWNLOAD"
 	exit 1
 else
-	if [ "$CHANNEL" == "soft" ]; then
-		download_file "https://raw.githubusercontent.com/PocketMine/PocketMine-Soft/${BRANCH}/resources/start.sh" > start.sh
-	else
-		download_file "https://raw.githubusercontent.com/PocketMine/PocketMine-MP/${BRANCH}/start.sh" > start.sh
-	fi
-	download_file "https://raw.githubusercontent.com/PocketMine/PocketMine-MP/${BRANCH}/LICENSE" > LICENSE
-	download_file "https://raw.githubusercontent.com/PocketMine/PocketMine-MP/${BRANCH}/README.md" > README.md
-	download_file "https://raw.githubusercontent.com/PocketMine/PocketMine-MP/${BRANCH}/CONTRIBUTING.md" > CONTRIBUTING.md
-	download_file "https://raw.githubusercontent.com/PocketMine/php-build-scripts/${BRANCH}/compile.sh" > compile.sh
+
+	download_file "https://raw.githubusercontent.com/ImagicalMine/ImagicalMine/${BRANCH}/start.sh" > start.sh
+	download_file "https://raw.githubusercontent.com/ImagicalMine/ImagicalMine/${BRANCH}/LICENSE" > LICENSE
+	download_file "https://raw.githubusercontent.com/ImagicalMine/ImagicalMine/${BRANCH}/README.md" > README.md
+	download_file "https://raw.githubusercontent.com/ImagicalMine/ImagicalMine/${BRANCH}/CONTRIBUTING.md" > CONTRIBUTING.md
+	download_file "https://raw.githubusercontent.com/ImagicalMine/php-build-scripts/${BRANCH}/compile.sh" > compile.sh
 fi
 
 chmod +x compile.sh

@@ -20,7 +20,7 @@ else
 fi
 
 rm -rf $WORKSPACE/*
-download_file "https://github.com/PocketMine/php-build-scripts/archive/${BRANCH}.tar.gz" | tar -xz > /dev/null
+download_file "https://github.com/ImagicalMine/php-build-scripts/archive/${BRANCH}.tar.gz" | tar -xz > /dev/null
 mv -f $WORKSPACE/php-build-scripts-${BRANCH}/* $WORKSPACE/
 chmod +x $WORKSPACE/compile.sh
 chmod +x $WORKSPACE/windows-binaries.sh
