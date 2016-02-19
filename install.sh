@@ -25,7 +25,7 @@ echo "system>	1) Linux x86(32-bit system)"
 echo "system>	2) Linux x64(64-bit system)"
 echo "system>   3) Mac x86(32-bit system)"
 echo "system>   4) Mac x64(64-bit system)"
-echo -n "system> Type your number (e.g. 1), then press [ENTER]: "
+read -p "system> Type your number (e.g. 1), then press [ENTER]: " -n1 -s
 # sleep 5
 read a
 
