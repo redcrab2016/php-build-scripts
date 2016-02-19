@@ -1,5 +1,5 @@
 #!/bin/bash
-# ImagicalMine Installation Script for Mac OS X and Linux(PHP7-0.14)
+# ImagicalMine Installation Script for Mac OS X and Linux(master)
 #  _    _            _    _______ 
 # | |  | |    /\    | |  |__   __|
 # | |__| |   /  \   | |     | |   
@@ -22,8 +22,8 @@ clear
 
 shopt -s extglob
 echo "system> Choose which PHP binary you want to install"
-echo "system>	1) Linux x86(32-bit system)"
-echo "system>	2) Linux x64(64-bit system)"
+echo "system>   1) Linux x86(32-bit system)"
+echo "system>   2) Linux x64(64-bit system)"
 echo "system>   3) Mac x86(32-bit system)"
 echo "system>   4) Mac x64(64-bit system)"
 echo -n "system> Number (e.g. 1): "
@@ -54,18 +54,18 @@ if [ "$z" == "x" ];then
 else
 	mkdir install_log
 	echo "system> Installing ImagicalMine..."
-	wget https://github.com/ImagicalMine/ImagicalMine/archive/php7-0.14.zip >>./$w 2>>./$w
-	chmod 777 php7-0.14.zip >>./$l 2>>./$le
-	unzip -o php7-0.14.zip >>./$l 2>>./$le
-	chmod 777 ImagicalMine-php7-0.14 >>./$l 2>>./$le
-	cd ImagicalMine-php7-0.14 >>./$l 2>>./$le
+	wget https://github.com/ImagicalMine/ImagicalMine/archive/master.zip >>./$w 2>>./$w
+	chmod 777 master.zip >>./$l 2>>./$le
+	unzip -o master.zip >>./$l 2>>./$le
+	chmod 777 ImagicalMine-master >>./$l 2>>./$le
+	cd ImagicalMine-master >>./$l 2>>./$le
 	chmod 777 src >>../$l 2>>../$le
 	cp -rf src .. >>../$l 2>>../$le
 #        cp -rf start.sh .. >>./$l 2>>./$le
 	cd .. >>../$l 2>>../$le
-	rm -rf ImagicalMine-php7-0.14 >>./$l 2>>./$le
-	rm -rf php7-0.14.zip >>./$l 2>>./$le
-	wget --no-check-certificate https://raw.githubusercontent.com/ImagicalMine/ImagicalMine/php7-0.14/start.sh >>./$l 2>>./$le
+	rm -rf ImagicalMine-master >>./$l 2>>./$le
+	rm -rf master.zip >>./$l 2>>./$le
+	wget --no-check-certificate https://raw.githubusercontent.com/ImagicalMine/ImagicalMine/master/start.sh >>./$l 2>>./$le
 	chmod 777 start.sh >>./$l 2>>./$le
         wget --no-check-certificate https://raw.githubusercontent.com/ImagicalMine/ImagicalMine/master/LICENSE.md >>./$l 2>>./$le
 	echo
