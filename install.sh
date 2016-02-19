@@ -1,4 +1,4 @@
-# ImagicalMine Installation Script for Mac OS X and Linux(PHP7-0.14)
+# ImagicalMine Installation Script for Mac OS X and Linux(master-0.14)
 #  _    _            _    _______ 
 # | |  | |    /\    | |  |__   __|
 # | |__| |   /  \   | |     | |   
