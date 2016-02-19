@@ -49,13 +49,13 @@ type g++ >> "$DIR/install.log" 2>&1 || { echo >&2 "[ERROR] Please install \"g++\
 
 #Needed to use aliases
 shopt -s expand_aliases
-type wget >> "$DIR/install.log" 2>&1
+type curl >> "$DIR/install.log" 2>&1
 if [ $? -eq 0 ]; then
-    alias download_file="wget --no-check-certificate -q -O -"
+    alias download_file="curl --insecure --silent --location"
 else
-    type curl >> "$DIR/install.log" 2>&1
+    type wget >> "$DIR/install.log" 2>&1
     if [ $? -eq 0 ]; then
-        alias download_file="curl --insecure --silent --location"
+       alias download_file="wget --no-check-certificate -q -O -"
     else
         echo "error, curl or wget not found"
     fi
