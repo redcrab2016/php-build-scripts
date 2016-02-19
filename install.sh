@@ -8,6 +8,10 @@
 # 
 # This file is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
 # Before you start doing anything, read the license for more detail into what you are allowed to do and not do.                             
+
+function pause(){
+   read -p "$*"
+}
                                  
 clear
  echo "  _                       _           _ __  __ _             "
@@ -25,7 +29,7 @@ echo "system>	1) Linux x86(32-bit system)"
 echo "system>	2) Linux x64(64-bit system)"
 echo "system>   3) Mac x86(32-bit system)"
 echo "system>   4) Mac x64(64-bit system)"
-read -p "system> Number (e.g. 1): "
+pause "system> Number (e.g. 1): "
 # sleep 5
 read a
 
