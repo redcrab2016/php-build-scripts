@@ -26,7 +26,7 @@ echo "system>	2) Linux x64(64-bit system)"
 echo "system>   3) Mac x86(32-bit system)"
 echo "system>   4) Mac x64(64-bit system)"
 echo -n "system> Number (e.g. 1): "
-sleep 5
+# sleep 5
 read a
 
 case "$a" in 
